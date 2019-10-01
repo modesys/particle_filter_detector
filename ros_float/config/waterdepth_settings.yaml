@@ -1,0 +1,6 @@
+keller:
+    depth_covariance:                   0.05
+    frame_id:                            "base_link"
+altitude:
+    altitude_covariance:                0.05
+    frame_id:                           "base_link"

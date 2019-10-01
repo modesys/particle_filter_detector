@@ -1,0 +1,97 @@
+\hypertarget{classGPS__reader}{}\section{G\+P\+S\+\_\+reader Class Reference}
+\label{classGPS__reader}\index{G\+P\+S\+\_\+reader@{G\+P\+S\+\_\+reader}}
+
+
+Collaboration diagram for G\+P\+S\+\_\+reader\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classGPS__reader__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGPS__reader_aea612c431bf535d34779946b1eaf17f0}\label{classGPS__reader_aea612c431bf535d34779946b1eaf17f0}} 
+{\bfseries G\+P\+S\+\_\+reader} (std\+::string filename)
+\item 
+\mbox{\Hypertarget{classGPS__reader_a3b0ee842ec5fb7d632dbea4e3be04365}\label{classGPS__reader_a3b0ee842ec5fb7d632dbea4e3be04365}} 
+bool {\bfseries next\+Line} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGPS__reader_a105510384a32f68ba0b2071802a67ef2}\label{classGPS__reader_a105510384a32f68ba0b2071802a67ef2}} 
+\hyperlink{structGPS__DATA}{G\+P\+S\+\_\+\+D\+A\+TA} {\bfseries gps\+\_\+data}
+\item 
+\mbox{\Hypertarget{classGPS__reader_ab08127115b385e07851bb4b6c8492473}\label{classGPS__reader_ab08127115b385e07851bb4b6c8492473}} 
+ros\+\_\+float\+::cmg {\bfseries cmg\+Msg}
+\item 
+\mbox{\Hypertarget{classGPS__reader_a8f04f46e401652161415b0c73c1a5b00}\label{classGPS__reader_a8f04f46e401652161415b0c73c1a5b00}} 
+ros\+\_\+float\+::gps\+\_\+timestamp {\bfseries gps\+\_\+time\+Msg}
+\item 
+\mbox{\Hypertarget{classGPS__reader_ab97b67a2e2646df6956bcc080fe8d687}\label{classGPS__reader_ab97b67a2e2646df6956bcc080fe8d687}} 
+ros\+\_\+float\+::mag\+\_\+var {\bfseries magvar\+Msg}
+\item 
+\mbox{\Hypertarget{classGPS__reader_a4f6b645cee68742e584c36498d4bd683}\label{classGPS__reader_a4f6b645cee68742e584c36498d4bd683}} 
+ros\+\_\+float\+::sog {\bfseries sog\+Msg}
+\item 
+\mbox{\Hypertarget{classGPS__reader_a6c5001bfda4b20c8c627e84240ebf87a}\label{classGPS__reader_a6c5001bfda4b20c8c627e84240ebf87a}} 
+sensor\+\_\+msgs\+::\+Nav\+Sat\+Fix {\bfseries fix\+Msg}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGPS__reader_a548d1980ea97af075804d34638af3a26}{pack\+Fix\+Msg} ()
+\begin{DoxyCompactList}\small\item\em Packs up fix message from input file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGPS__reader_ad88607d8d71d056ade5dc69dc02fced3}\label{classGPS__reader_ad88607d8d71d056ade5dc69dc02fced3}} 
+void {\bfseries pack\+Lat\+Msg} ()
+\item 
+\mbox{\Hypertarget{classGPS__reader_a452eaf0edee31f3feb2b958e9310aff3}\label{classGPS__reader_a452eaf0edee31f3feb2b958e9310aff3}} 
+void {\bfseries pack\+Lon\+Msg} ()
+\item 
+\mbox{\Hypertarget{classGPS__reader_a67385f5ba46b5d866a36d1b0b63d4e23}\label{classGPS__reader_a67385f5ba46b5d866a36d1b0b63d4e23}} 
+void {\bfseries pack\+Status} ()
+\item 
+\mbox{\Hypertarget{classGPS__reader_a057566cd28481e2b265da7c7bc5094f4}\label{classGPS__reader_a057566cd28481e2b265da7c7bc5094f4}} 
+void {\bfseries pack\+G\+P\+S\+\_\+\+Timestamp} ()
+\item 
+\mbox{\Hypertarget{classGPS__reader_a4d3cd1b5b65b45bdc873063903ac5ee6}\label{classGPS__reader_a4d3cd1b5b65b45bdc873063903ac5ee6}} 
+void {\bfseries pack\+Sog\+Msg} ()
+\item 
+\mbox{\Hypertarget{classGPS__reader_ac0aad343dff364ccc5acff3a8f1951d0}\label{classGPS__reader_ac0aad343dff364ccc5acff3a8f1951d0}} 
+void {\bfseries pack\+Cmg\+Msg} ()
+\item 
+\mbox{\Hypertarget{classGPS__reader_ac682fedffe40ef0f86c574e065a81910}\label{classGPS__reader_ac682fedffe40ef0f86c574e065a81910}} 
+void {\bfseries pack\+Mag\+Var\+Msg} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGPS__reader_a83dc8c11a68339ff3c14ec1f4cc14d50}\label{classGPS__reader_a83dc8c11a68339ff3c14ec1f4cc14d50}} 
+\hyperlink{classio_1_1CSVReader}{io\+::\+C\+S\+V\+Reader}$<$ 8 $>$ {\bfseries gps\+\_\+reader}
+\item 
+\mbox{\Hypertarget{classGPS__reader_a11c923e2668986841cdb75976f8b4c8a}\label{classGPS__reader_a11c923e2668986841cdb75976f8b4c8a}} 
+unsigned int {\bfseries msg\+Num\+G\+PS}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGPS__reader_a548d1980ea97af075804d34638af3a26}\label{classGPS__reader_a548d1980ea97af075804d34638af3a26}} 
+\index{G\+P\+S\+\_\+reader@{G\+P\+S\+\_\+reader}!pack\+Fix\+Msg@{pack\+Fix\+Msg}}
+\index{pack\+Fix\+Msg@{pack\+Fix\+Msg}!G\+P\+S\+\_\+reader@{G\+P\+S\+\_\+reader}}
+\subsubsection{\texorpdfstring{pack\+Fix\+Msg()}{packFixMsg()}}
+{\footnotesize\ttfamily void G\+P\+S\+\_\+reader\+::pack\+Fix\+Msg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Packs up fix message from input file. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]ask croman for conformation \end{DoxyRefDesc}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/emanuele/catkin\+\_\+ws/src/ros\+\_\+float/include/ros\+\_\+float/gps\+\_\+reader.\+h\item 
+/home/emanuele/catkin\+\_\+ws/src/ros\+\_\+float/include/ros\+\_\+float/gps\+\_\+reader.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<launch>
+
+<param name="use_sim_time" value="true" />
+
+<!-- Loading the Parameters: au_au.yaml;  cov_config.yaml and noise_settings.yaml-->
+
+<rosparam command="load" file="$(find ros_float)/config/au_au.yaml" />
+<rosparam command="load" file="$(find ros_float)/config/cov_config.yaml" />
+
+<!-- This is the Uncertainty Pre-Processor Node -->
+
+ <node pkg="ros_float" type="unc_preprocessor_node"
+       name="unc_preprocessor" clear_params="false">
+      <param name="unc_preprocessor_data" value="true"/>
+<!-- Enter the uncertainty pre-processor -->
+     <remap from="/imu/data_no_uncertainty" to="/imu/data"/>
+     <remap from="/imu/mag_no_uncertainty" to="/imu/data"/>
+<!-- Exit the uncertainty pre-processor -->
+<!--     <remap from="/imu/data_w_uncertainty" to="/filter/imu/data"/>
+     <remap from="/imu/mag_w_uncertainty" to="/filter/imu/mag"/>-->
+    <remap from="/filter/imu/data" to="/imu/data_w_uncertainty"/>
+    <remap from="/filter/imu/mag" to="/imu/mag_w_uncertainty"/>
+ </node>
+
+<!-- This is the IMU Filter-Madgwick Node -->
+
+ <node pkg="imu_filter_madgwick" type="imu_filter_node"
+     name="filterMadgwick" clear_params="false">
+
+     <remap from="/imu/data_raw" to="/imu/data_w_uncertainty"/>
+     <remap from="/imu/data" to="/imu/data_w_orientation"/>
+     <remap from="/imu/mag" to="/imu/mag_w_uncertainty" />
+
+     <param name="mag_bias_x" value="-3.6701"/>
+     <param name="mag_bias_y" value="0.6849"/>
+     <param name="mag_bias_z" value="0.8211"/>
+     <param name="orientation_stddev" value="0.1"/>
+     <param name="gain" value="0.02"/>
+     <param name="use_magnetic_field_msg" value="true"/>
+     <param name="publish_tf" value="false"/>
+ </node>
+
+
+<!-- Ricordati di aggiungere un (-) aggiiuntivo di fronte a duration per fare il recording dei dati-->
+
+<node pkg="rosbag" type="play" name="player" output="screen" args="--clock -q -s 2340 /home/emanuele/test.bag"/>
+<!--<node pkg="rosbag" type="record" name="record" output="screen" args="-duration=185m -O filter_second_order /estimate /particle_cloud " required ="true"/>-->
+<!--<node pkg="rosbag" type="record" name="record" output="screen" args="-duration=2m -O filter_position /estimate /particle_cloud " required ="true"/>-->
+
+<node pkg="ros_float" type="pf_node" name="pf_node" output="screen"/>
+<node pkg="ros_float" type="transform_particle_filter_pose.py" name="tras_pose" output="screen"/>
+
+
+<!--Adding URDF model-->
+
+<arg name="floatModel" default="$(find ros_float)/urdf/floatModel.urdf"/>
+<arg name="gui" default="true" />
+<param name="robot_description" command="$(find xacro)/xacro.py $(arg floatModel)" />
+<param name="publish_frequency" value="1.0" />
+<param name="use_gui" value="$(arg gui)"/>
+<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+
+
+</launch>

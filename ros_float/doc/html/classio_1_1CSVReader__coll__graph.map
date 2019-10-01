@@ -1,0 +1,4 @@
+<map id="io::CSVReader&lt; column_count, trim_policy, quote_policy, overflow_policy, comment_policy &gt;" name="io::CSVReader&lt; column_count, trim_policy, quote_policy, overflow_policy, comment_policy &gt;">
+<area shape="rect" id="node2" href="$classio_1_1LineReader.html" title="io::LineReader" alt="" coords="41,109,148,136"/>
+<area shape="rect" id="node3" href="$classio_1_1detail_1_1AsynchronousReader.html" title="io::detail::Asynchronous\lReader" alt="" coords="13,5,176,47"/>
+</map>

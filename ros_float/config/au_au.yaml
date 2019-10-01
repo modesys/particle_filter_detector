@@ -1,0 +1,13 @@
+# for PF
+#origin_lat: 19.916
+#origin_lon:  -155.914
+
+# for EKF
+origin_lat: 19.914177
+origin_lon: -155.913994
+
+origin_z: 0
+
+
+
+utm_zone: "EPSG:26905" #rhode island

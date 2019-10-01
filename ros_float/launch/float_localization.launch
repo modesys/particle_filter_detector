@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<launch>
+<param name="use_sim_time" value="true" />
+
+
+<!--<rosparam command="load" file="$(find ros_float)/config/au_au.yaml" />-->
+<!--<rosparam command="load" file="$(find ros_float)/config/cov_config.yaml" />-->
+
+<!-- Loading the Parameters: au_au.yaml;  cov_config.yaml and noise_settings.yaml-->
+
+<rosparam command="load" file="$(find ros_float)/config/au_au.yaml" />
+<rosparam command="load" file="$(find ros_float)/config/cov_config.yaml" />
+<rosparam command ="load" file="$(find ros_float)/config/noise_settings.yaml" />
+
+
+
+<!-- EFK ODOM -->
+<!--
+ <node pkg="robot_localization" type="ekf_localization_node"
+     name="ekf_odom" clear_params="false">
+    <param name="frequency" value="30"/>
+    <param name="use_sim_time" value="true" />
+    <param name="sensor_timeout" value="0.1"/>
+    <param name="two_d_mode" value="false"/>
+    <param name="transform_time_offset" value="0.2"/>
+    <param name="transform_timeout" value="0.0"/>
+    <param name="print_diagnostics" value="true"/>
+    <param name="debug" value="false"/>
+
+    <param name="map_frame" value="map"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="base_link_frame" value="base_link"/>
+    <param name="world_frame" value="odom"/>
+
+    <param name="imu0" value="/imu/data_w_orientation"/>
+    <rosparam param="imu0_config">[false, false, false,
+                                   true,  true,  true,
+                                   false, false, false,
+                                   false, false, false,
+                                   false, false, false]</rosparam>
+    <param name="imu0_nodelay" value="false"/>
+    <param name="imu0_differential" value="false"/>
+    <param name="imu0_relative" value="false"/>
+    <param name="imu0_queue_size" value="10"/>
+    <param name="imu0_remove_gravitational_acceleration" value="true"/>
+
+    <param name="odom0" value="/cam/odometry"/>
+    <rosparam param="odom0_config">[false, false, false,
+                                    true,  true,  false,
+                                    false, false, false,
+                                    false, false, false,
+                                    false, false, false]</rosparam>
+
+    <param name="odom0_nodelay" value="true"/>
+    <param name="odom0_queue_size" value="true"/>
+    <param name="odom0_differential" value="false"/>
+    <param name="odom0_relative" value="false"/>
+  </node>-->
+
+
+<!-- EFK MAP -->
+
+<node pkg="robot_localization" type="ekf_localization_node"
+    name="ekf_map" clear_params="false">
+<!--   <remap from="odometry/filtered" to="odometry/filtered_map"/>-->
+    <param name="frequency" value="30"/>
+    <param name="use_sim_time" value="true" />
+    <param name="sensor_timeout" value="0.1"/>
+    <param name="two_d_mode" value="true"/>
+    <param name="transform_time_offset" value="0.0"/>
+    <param name="transform_timeout" value="0.0"/>
+    <param name="print_diagnostics" value="true"/>
+    <param name="debug" value="false"/>
+
+   <param name="map_frame" value="map"/>
+   <param name="odom_frame" value="odom"/>
+   <param name="base_link_frame" value="base_link"/>
+   <param name="world_frame" value="map"/>
+   <param name="publish_tf" value="true"/>
+<!--   <param name="smooth_lagged_data" value="true"/>-->
+<!--   <param name="debug" value="true"/>
+   <param name="debug_out_file" value="/home/emanuele/Desktop/ekf_debug.txt"/>-->
+
+    <rosparam param="initial_state">[0.292157806893,  4.471089378,  0.0,
+                                     0.0,             0.0,          0.0,
+                                     0.0577,          0.0237,       0.0,
+                                     0.0,             0.0,          0.0,
+                                     0.0,             0.0,          0.0]</rosparam>
+
+
+<!-- This is the USBL Pose Projected message -->
+
+   <param name="odom0" value="/usbl/pose_projected"/>
+   <rosparam param="odom0_config">[true, true,  false,
+                                  false, false, false,
+                                  false, false, false,
+                                  false, false, false,
+                                  false, false, false]</rosparam>
+
+    <param name="odom0_queue_size" value="10"/>
+    <param name="odom0_nodelay" value="true"/>
+    <param name="odom0_differential" value="false"/>
+    <param name="odom0_relative" value="false"/>
+
+
+<!-- This is the IMU message -->
+
+<!--   <param name="imu0" value="/imu/data_w_orientation"/>
+   <rosparam param="imu0_config">[false, false, false,
+                                  true , true , true,
+                                  false, false, false,
+                                  false, false, false,
+                                  false, false, false]</rosparam>
+
+   <param name="imu0_nodelay" value="true"/>
+   <param name="imu0_differential" value="false"/>
+   <param name="imu0_relative" value="false"/>
+   <param name="imu0_queue_size" value="10"/>
+   <param name="imu0_remove_gravitational_acceleration" value="true"/>-->
+
+
+<!-- Thgis is the Keller message -->
+
+   <param name="odom1" value="/filter/fluid_pressure/Odom_depth"/>
+   <rosparam param="odom1_config">[false, false, true,
+                                   false, false, false,
+                                   false, false, false,
+                                   false, false, false,
+                                   false, false, false]</rosparam>
+   <param name="odom1_differential" value="false"/>
+
+
+<!-- This is the Camera message -->
+
+   <param name="odom2" value="/cam/odometry"/>
+   <rosparam param="odom2_config">[false, false, false,
+                                   true,  true,  true,
+                                   true,  true,  false,
+                                   false, false, false,
+                                   false, false, false]</rosparam>
+
+    <param name="odom2_queue_size" value="10"/>
+    <param name="odom2_nodelay" value="true"/>
+    <param name="odom2_differential" value="false"/>
+    <param name="odom2_relative" value="false"/>
+ </node>
+
+
+<!-- This is the Uncertainty Pre-Processor Node -->
+
+<node pkg="ros_float" type="unc_preprocessor_node"
+      name="unc_preprocessor" clear_params="false">
+     <param name="unc_preprocessor_data" value="true"/>
+<!-- Enter the uncertainty pre-processor -->
+    <remap from="/imu/data_no_uncertainty" to="/imu/data"/>
+    <remap from="/imu/mag_no_uncertainty" to="/imu/data"/>
+<!-- Exit the uncertainty pre-processor -->
+<!--     <remap from="/imu/data_w_uncertainty" to="/filter/imu/data"/>
+    <remap from="/imu/mag_w_uncertainty" to="/filter/imu/mag"/>-->
+   <remap from="/filter/imu/data" to="/imu/data_w_uncertainty"/>
+   <remap from="/filter/imu/mag" to="/imu/mag_w_uncertainty"/>
+</node>
+
+
+<!-- This is the IMU Filter-Madgwick Node -->
+
+<node pkg="imu_filter_madgwick" type="imu_filter_node"
+    name="filterMadgwick" clear_params="false">
+
+    <remap from="/imu/data_raw" to="/imu/data_w_uncertainty"/>
+    <remap from="/imu/data" to="/imu/data_w_orientation"/>
+    <remap from="/imu/mag" to="/imu/mag_w_uncertainty" />
+
+    <param name="mag_bias_x" value="-3.6701"/>
+    <param name="mag_bias_y" value="0.6849"/>
+    <param name="mag_bias_z" value="0.8211"/>
+    <param name="orientation_stddev" value="0.1"/>
+    <param name="gain" value="0.02"/>
+    <param name="use_magnetic_field_msg" value="true"/>
+    <param name="publish_tf" value="false"/>
+</node>
+
+
+<!-- ROSBAG operations: read bag with sensor information and TRANSFORM POSE: publish -->
+<node type="rviz" name="rviz" pkg="rviz" args="-d $(find ros_float)/config/rviz_robot_loc_correct.rviz" />
+<node pkg="rosbag" type="play" name="player" output="screen" args="--clock -q -r 20 -s 2340 /home/emanuele/test.bag"/>
+<node pkg="rosbag" type="record" name="record" output="screen" args="--duration=185m -O EKF_tuned_final_result /odometry/filtered /usbl/pose_projected" required ="true"/>
+
+<node pkg="ros_float" type="transform_pose.py" name="tras_pose" output="screen"/>
+
+
+<!-- ROSBAG operations: launching Multi-Beam Grid Map -->
+
+<!--<node pkg="rosbag" type="play" name="gridMapPlayer" output="screen" args="/home/emanuele/Desktop/grid_map_50_auau_survey5ms.bag"/>-->
+<!-- Adding URDF model-->
+
+<arg name="floatModel" default="$(find ros_float)/urdf/floatModel.urdf"/>
+<arg name="gui" default="true" />
+<param name="robot_description" command="$(find xacro)/xacro.py $(arg floatModel)" />
+<param name="publish_frequency" value="1.0" />
+<param name="use_gui" value="$(arg gui)"/>
+<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+
+
+</launch>

@@ -1,0 +1,65 @@
+\hypertarget{classKeller__reader}{}\section{Keller\+\_\+reader Class Reference}
+\label{classKeller__reader}\index{Keller\+\_\+reader@{Keller\+\_\+reader}}
+
+
+Collaboration diagram for Keller\+\_\+reader\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{classKeller__reader__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classKeller__reader_af02af436842fe2678d6589c3f1b146db}\label{classKeller__reader_af02af436842fe2678d6589c3f1b146db}} 
+{\bfseries Keller\+\_\+reader} (std\+::string filename)
+\item 
+\mbox{\Hypertarget{classKeller__reader_ab77d4a9f47de55c6b8d891f08d662785}\label{classKeller__reader_ab77d4a9f47de55c6b8d891f08d662785}} 
+bool {\bfseries next\+Line} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classKeller__reader_a2d73223c9cae72b889f1d121e2f629d5}\label{classKeller__reader_a2d73223c9cae72b889f1d121e2f629d5}} 
+\hyperlink{structKELLER__DATA}{K\+E\+L\+L\+E\+R\+\_\+\+D\+A\+TA} {\bfseries keller\+\_\+data}
+\item 
+\mbox{\Hypertarget{classKeller__reader_a9c2c2985184a95c46f106c1e549340c0}\label{classKeller__reader_a9c2c2985184a95c46f106c1e549340c0}} 
+sensor\+\_\+msgs\+::\+Fluid\+Pressure {\bfseries pressure\+Msg}
+\item 
+\mbox{\Hypertarget{classKeller__reader_a4ef560019ef100b52d6fd46b497a84eb}\label{classKeller__reader_a4ef560019ef100b52d6fd46b497a84eb}} 
+ros\+\_\+float\+::pressure {\bfseries p\+Msg}
+\item 
+\mbox{\Hypertarget{classKeller__reader_aca76ed46c7e828e131c99df919dee597}\label{classKeller__reader_aca76ed46c7e828e131c99df919dee597}} 
+ros\+\_\+float\+::temperature {\bfseries t\+Msg}
+\item 
+\mbox{\Hypertarget{classKeller__reader_a9216da4b4ba9d3aab90a8d59e9cd9d93}\label{classKeller__reader_a9216da4b4ba9d3aab90a8d59e9cd9d93}} 
+ros\+\_\+float\+::depth {\bfseries d\+Msg}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classKeller__reader_a1447efaa0ca4da10c05aadfed883a07d}\label{classKeller__reader_a1447efaa0ca4da10c05aadfed883a07d}} 
+void {\bfseries pack\+Pressure\+Msg} ()
+\item 
+\mbox{\Hypertarget{classKeller__reader_a2c5b455f877fbca9ae2af0891991d948}\label{classKeller__reader_a2c5b455f877fbca9ae2af0891991d948}} 
+void {\bfseries pack\+Custom\+\_\+\+Temperature\+Msg} ()
+\item 
+\mbox{\Hypertarget{classKeller__reader_aec80d676479ec7193b5070e57450bf32}\label{classKeller__reader_aec80d676479ec7193b5070e57450bf32}} 
+void {\bfseries pack\+Custom\+\_\+\+Depth\+Msg} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classKeller__reader_a4fcf1b20e6a5fe8a262b12042ab433bd}\label{classKeller__reader_a4fcf1b20e6a5fe8a262b12042ab433bd}} 
+\hyperlink{classio_1_1CSVReader}{io\+::\+C\+S\+V\+Reader}$<$ 4 $>$ {\bfseries keller\+\_\+reader}
+\item 
+\mbox{\Hypertarget{classKeller__reader_a09fb87959f1d7228d22ab26d6d858912}\label{classKeller__reader_a09fb87959f1d7228d22ab26d6d858912}} 
+unsigned int {\bfseries msg\+Num\+Keller}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/emanuele/catkin\+\_\+ws/src/ros\+\_\+float/include/ros\+\_\+float/keller\+\_\+reader.\+h\item 
+/home/emanuele/catkin\+\_\+ws/src/ros\+\_\+float/include/ros\+\_\+float/keller\+\_\+reader.\+cpp\end{DoxyCompactItemize}

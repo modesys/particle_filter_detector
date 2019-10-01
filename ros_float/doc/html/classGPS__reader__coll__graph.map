@@ -1,0 +1,6 @@
+<map id="GPS_reader" name="GPS_reader">
+<area shape="rect" id="node2" href="$structGPS__DATA.html" title="GPS_DATA" alt="" coords="5,199,99,225"/>
+<area shape="rect" id="node3" href="$classio_1_1CSVReader.html" title="io::CSVReader\&lt; 8 \&gt;" alt="" coords="123,199,264,225"/>
+<area shape="rect" id="node4" href="$classio_1_1LineReader.html" title="io::LineReader" alt="" coords="140,109,247,136"/>
+<area shape="rect" id="node5" href="$classio_1_1detail_1_1AsynchronousReader.html" title="io::detail::Asynchronous\lReader" alt="" coords="112,5,275,47"/>
+</map>

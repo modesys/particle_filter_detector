@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+<param name="use_sim_time" value="true" />
+ <node pkg="imu_filter_madgwick" type="imu_filter_node"
+     name="filterMadgwick" clear_params="false">
+
+     <remap from="/imu/data_raw" to="/imu/data_w_uncertainty"/>
+     <remap from="/imu/data" to="/imu/data_w_orientation"/>
+     <remap from="/imu/mag" to="/imu/mag_w_uncertainty" />
+
+     <param name="mag_bias_x" value="-3.6701"/>
+     <param name="mag_bias_y" value="0.6849"/>
+     <param name="mag_bias_z" value="0.8211"/>
+     <param name="orientation_stddev" value="0.1"/>
+     <param name="gain" value="0.02"/>
+     <param name="use_magnetic_field_msg" value="true"/>
+     <param name="publish_tf" value="true"/>
+
+ </node>
+</launch>

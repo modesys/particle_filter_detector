@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<robot name="floatModel">
+
+    <!-- Material & Color  -->
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+    <material name="cyan">
+        <color rgba="0 1 1 1"/>
+    </material>
+    <material name="orange">
+      <color rgba="${255/255} ${108/255} ${10/255} 1.0"/>
+    </material>
+    <material name="transparent">
+      <color rgba="${12240/255} ${12240/255} ${12240/255} 0.9"/>
+    </material>
+
+<!-- Base Link Declaration  -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+<!-- This is the main body of the float  -->
+                <cylinder length="0.865" radius="0.09"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+    </link>
+
+<!-- upper cap  -->
+    <link name="upper_cap">
+        <visual>
+            <geometry>
+                <cylinder length="0.04" radius="0.09"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 -0.22 0.203"/>
+            <material name="orange"/>
+        </visual>
+    </link>
+    <joint name="ucap_to_float" type="fixed">
+        <parent link="base_link"/>
+        <child link="upper_cap"/>
+        <origin xyz="0 0.22 0.25"/>
+    </joint>
+
+<!-- usbl  -->
+    <link name="usbl">
+        <visual>
+            <geometry>
+                <cylinder length="0.10" radius="0.04"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 -0.075 0.0508"/>
+<!--            <origin rpy="0 0 0" xyz="0 -0.075 0.0508"/>-->
+
+            <material name="cyan"/>
+        </visual>
+    </link>
+    <joint name="base_to_usbl" type="fixed">
+        <parent link="base_link"/>
+        <child link="usbl"/>
+        <origin xyz="0 0.22 0.25"/>
+    </joint>
+
+<!-- imu -->
+<link name="imu">
+    <visual>
+        <geometry>
+            <cylinder length="0.01" radius="0.01"/>
+        </geometry>
+        <origin rpy="0 1.570796 0" xyz="0 0 0"/>
+<!--        <origin rpy="0 1.570796 0" xyz="0 0 0"/>-->
+
+        <material name="cyan"/>
+    </visual>
+</link>
+<joint name="base_to_imu" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu"/>
+    <origin rpy="0 1.570796 0" xyz="0 0 0"/>
+<!--    <origin rpy="0 1.570796 0" xyz="0 0 0"/>-->
+
+</joint>
+
+<!-- keller -->
+
+
+<!-- connection usbl-float -->
+    <link name="usbl_to_float">
+        <visual>
+            <geometry>
+                <box size="0.06 0.05 0.05"/>
+            </geometry>
+            <origin rpy="1.57 0 0" xyz="0 -0.115 0.0508"/>
+            <material name="orange"/>
+        </visual>
+    </link>
+    <joint name="conn_to_float" type="fixed">
+        <parent link="base_link"/>
+        <child link="usbl_to_float"/>
+        <origin xyz="0 0.22 0.25"/>
+    </joint>
+
+<!-- camera -->
+    <link name="camera">
+        <visual>
+            <geometry>
+                <cylinder length="0.175" radius="0.09"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0.22 0.0508"/>
+            <meterial name="orange"/>
+        </visual>
+    </link>
+    <joint name="base_to_camera" type="fixed">
+        <parent link="base_link"/>
+        <child link="camera"/>
+        <meterial name="orange"/>
+        <origin xyz="0 -0.02 -0.4525"/>
+    </joint>
+
+<!-- strobe -->
+    <link name="strobe">
+        <visual>
+            <geometry>
+                <cylinder length="0.125" radius="0.0625"/>
+            </geometry>
+            <origin rpy="120 0 0" xyz="0 -0.16 -0.36"/>
+            <material name="orange"/>
+        </visual>
+    </link>
+    <joint name="base_to_strobe" type="fixed">
+        <parent link="base_link"/>
+        <child link="strobe"/>
+        <origin xyz="0 -0.36 0"/>
+    </joint>
+
+<!-- strobe cap -->
+    <link name="strobe_cap">
+        <visual>
+            <geometry>
+                <sphere radius="0.0625"/>
+             </geometry>
+            <origin rpy="120 0 0" xyz="0 -0.16 -0.36"/>
+            <meterial name="orange"/>
+        </visual>
+    </link>
+    <joint name="cap" type="fixed">
+        <parent link="base_link"/>
+        <child link="strobe_cap"/>
+        <origin xyz="0 -0.395 0.04908"/>
+    </joint>
+
+
+<!-- connection strobe-float -->
+    <link name="strobe_connection_to_float">
+      <visual>
+        <geometry>
+            <cylinder length="0.36" radius="0.0165"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0 0.09 -0.3725"/>
+        <material name="orange"/>
+      </visual>
+    </link>
+    <joint name="strobe_to_float" type="fixed">
+        <parent link="base_link"/>
+        <child link="strobe_connection_to_float"/>
+        <origin xyz="0 -0.36 0"/>
+    </joint>
+
+<!-- connection camera-float -->
+    <link name="camera_connection_to_float">
+        <visual>
+            <geometry>
+                <box size="0.09 0.05 0.05"/>
+            </geometry>
+            <origin rpy="1.57 0 0" xyz="0 0.36 0"/>
+            <material name="orange"/>
+        </visual>
+    </link>
+    <joint name="camera_to_float" type="fixed">
+        <parent link="base_link"/>
+        <child link="camera_connection_to_float"/>
+        <origin xyz="0 -0.26 -0.3725"/>
+    </joint>
+
+<!-- tilted connection to base ring [leg_01] -->
+    <link name="leg1">
+        <visual>
+            <geometry>
+                <cylinder length="0.32" radius="0.003"/>
+            </geometry>
+            <origin rpy="0.30 0 0" xyz="0 -0.068 -0.283"/>
+            <material name="cyan"/>
+        </visual>
+    </link>
+    <joint name="leg1_to_float" type="fixed">
+    <parent link="base_link"/>
+    <child link="leg1"/>
+    <origin xyz="0 0.20 -0.30"/>
+    </joint>
+
+<!-- tilted connection to base ring [leg_02] -->
+    <link name="leg2">
+        <visual>
+            <geometry>
+                <cylinder length="0.32" radius="0.003"/>
+            </geometry>
+            <origin rpy="-0.30 0 0" xyz="0 0.068 -0.883"/>
+            <material name="cyan"/>
+        </visual>
+    </link>
+    <joint name="leg2_to_float" type="fixed">
+    <parent link="base_link"/>
+    <child link="leg2"/>
+    <origin xyz="0 -0.20 0.30"/>
+    </joint>
+
+<!-- tilted connection to base ring [leg_03] -->
+    <link name="leg3">
+        <visual>
+            <geometry>
+                <cylinder length="0.32" radius="0.003"/>
+            </geometry>
+            <origin rpy="0.10 0.20 0.20" xyz="-0.115 0.20 -0.883"/>
+            <material name="cyan"/>
+        </visual>
+    </link>
+    <joint name="leg3_to_float" type="fixed">
+    <parent link="base_link"/>
+    <child link="leg3"/>
+    <origin xyz="0 -0.20 0.30"/>
+    </joint>
+
+
+<!-- External Base -->
+    <link name="base">
+        <visual>
+            <geometry>
+                <cylinder length="0.012" radius="0.185"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 1.15"/>
+            <material name="blue"/>
+        </visual>
+    </link>
+    <joint name="base_to_float" type="fixed">
+    <parent link="base_link"/>
+    <child link="base"/>
+    <origin xyz="0 0 -1.883"/>
+    </joint>
+
+<!-- Internal Base -->
+    <link name="int_base">
+        <visual>
+            <geometry>https://ros-users.narkive.com/cFHbJjc2/urdf-robot-state-publisher-tf-confusion
+                <cylinder length="0.012" radius="0.155"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 1.15"/>
+            <material name="transparent"/>
+        </visual>
+    </link>
+    <joint name="int_base_to_float" type="fixed">
+    <parent link="base_link"/>
+    <child link="int_base"/>
+    <origin xyz="0 0 -1.883"/>
+    </joint>
+
+</robot>
+

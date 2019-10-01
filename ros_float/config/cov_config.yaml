@@ -1,0 +1,17 @@
+imu:
+    angular_velocity_covariance:        0.02
+    orientation_covariance:             0.1
+    linear_acceleration_covariance:     10.15
+    frame_id:                            "imu"
+keller:
+    depth_covariance:                   0.05
+    tempeartue_covariance:              0.05
+    pressure_covariance:                0.05
+    frame_id:                            "base_link"
+mag:
+    magnetic_covariance:                0.05
+    magnetic_field:                     0.1
+    frame_id:                            "base_link"
+altitude:
+    altitude_covariance:                0.05
+    frame_id:                           "base_link"
