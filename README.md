@@ -47,13 +47,11 @@ Under development:
   <h1>Image Demo</h1>
   <p>
     <img src = "monkey.png"
-         alt = "Picture of a happy monkey" />
+         alt = "PFDS" />
   </p>
-  <h2>This page has a picture of a monkey</h2>
+  <h2>This page shows how PFDS works</h2>
   <p>
-    This monkey is called 'Suzanne.' It's a default 
-    object in an incredible free 3D modeling tool
-    called 'Blender.'
+    PFDS is called 'Particle Filter Detection System.'
   </p>
 </body>
 </html>
