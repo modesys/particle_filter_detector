@@ -46,7 +46,7 @@ Under development:
 <body>
   <h1>Image Demo</h1>
   <p>
-    <img src = "monkey.png"
+    <img src = "/home/emanuele/Desktop/pfds.png"
          alt = "PFDS" />
   </p>
   <h2>This page shows how PFDS works</h2>
