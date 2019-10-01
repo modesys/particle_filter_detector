@@ -37,6 +37,25 @@ Under development:
 
 **How PFDS works and its structure**
 
-
+<!DOCTYPE HTML>
+<html lang = "en">
+<head>
+  <title>imageDemo.html</title>
+  <meta charset = "UTF-8" />
+</head>
+<body>
+  <h1>Image Demo</h1>
+  <p>
+    <img src = "monkey.png"
+         alt = "Picture of a happy monkey" />
+  </p>
+  <h2>This page has a picture of a monkey</h2>
+  <p>
+    This monkey is called 'Suzanne.' It's a default 
+    object in an incredible free 3D modeling tool
+    called 'Blender.'
+  </p>
+</body>
+</html>
 
 
