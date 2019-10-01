@@ -37,23 +37,3 @@ Under development:
 
 **How PFDS works and its structure**
 
-<!DOCTYPE HTML>
-<html lang = "en">
-<head>
-  <title>imageDemo.html</title>
-  <meta charset = "UTF-8" />
-</head>
-<body>
-  <h1>Image Demo</h1>
-  <p>
-    <img src = "/home/emanuele/Desktop/pfds.png"
-         alt = "PFDS" />
-  </p>
-  <h2>This page shows how PFDS works</h2>
-  <p>
-    PFDS is called 'Particle Filter Detection System.'
-  </p>
-</body>
-</html>
-
-
