@@ -1,45 +1,38 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+**Welcome to the Particle Filter Detector System**
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+This repository is a ROS node that is aimed at tracking particle cloud feeding the system with previous information from existing exteroceptive sensors. This is a free and open source package that proved to give encoraging result in the underwater environment and in the estimation of the expected position of the underwater system in case of loss of signal from specific positioning sensors. 
+However it will be utilized mostly for tracking of specific blood cells particles for estimating the position of blood cell, cancer cell based on specific cancer markers, fluid flow inside blood vessel or even specific request from the public and according to the general needs.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+It has the following dependencies:
+1. Qt5 
+2. ROS
+3. Bayesian Library (the orocos-bfl project)
 
----
+ABSTRACT - UNDERWATER APPLICATION
+The Particle Filter Detector Systsem (PFDS) is a system used for underwater imaging and fuild environemnt. 
+Originally developed from a terrain-aided particle filter for localizing a freely drifting  underwater  vehicle, the PFDS can also be extended to blood analysis and blood cell tracking.
+If used for underwater on a remotely operated vehicle (ROV) it can be used for habitat  classification,  monitoring tracking of estimated position. During  operation  the vehicle captures down looking images at a controlled altitude above the bottom. Direct navigation information is often, but not always, recorded with a ultra short
+baseline  (USBL)  acoustic  systsem. The  presented  methodology  provides  an  al-
+ternate method for georeferencing when USBL is unavailable.  The implemented
+particle filter utilizes a background bathymetry map and visual odometry as a motion mode.  The particle filter is implemented using the Robot Operating System (ROS) and Orocos Bayesian Filtering Library (BFL). The Grid Map package is used to store and retrieve the bathymetryic data.  Results using data collected shows how to effectively utilize the terrain information and produce drift trajectories which closely match the recorded USBL data. Utilizing the method allows the system to be deployed with minimal ship-side support while still maintaining the georeferencing critical to the end use of the collected images. But most importantly, because of the broad scope of application this system can be applied in several environment.
 
-## Edit a file
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+ABSTRACT - BIOMEDICAL APPLICATION
+The PFDS can be used in a multiple ways. A great use of this package will be in the tracking of specific blood cells particles for estimating the position of a: i) cell, ii) cancer cell based on specific cancer markers, iii) fluid flow inside blood vessel. A specific number of exteroceptive sensors will be mounted on the human body such as:
+1. A pressure sensor on the body detecting the pressure (and temperature)
+2. Blood speed sensor
+3. Inertial Measurment Unit system that give rotation of the human body part under analysis
+4. Location sensor (e.g. GPS system) to localize the reference frame
+5. an a-priori known map from an ultra-sound device that gives the internal part composition of the body
+6. Laser device to scan the human body
+7. Camera system for stereo-pair use and 3D composition of images
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+All this information combined together will be able to provide the exact location of the specific cell someone is looking for. ROS will be used for visualization purposes.
 
----
+Under development:
+1. Creation of a specific graphical User Interface (GUI) to interact with ROS as an external plug-in
+2. Implementation of additional non-parametric filters for additional in-depth analysis
+3. Database integration of recorded information during simulation phase
+4. Cancer integration markers and implementation of related growth equations
 
-## Create a file
-
-Next, you’ll add a new file to this repository.
-
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
-
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
-
----
-
-## Clone a repository
-
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
-
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
-
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+**How PFDS works and its structure**
