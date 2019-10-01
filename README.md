@@ -1,7 +1,7 @@
 **Welcome to the Particle Filter Detector System**
 
-This repository is a ROS node that is aimed at tracking particle cloud feeding the system with previous information from existing exteroceptive sensors. This is a free and open source package that proved to give encoraging result in the underwater environment. However it will be utilized for  
-
+This repository is a ROS node that is aimed at tracking particle cloud feeding the system with previous information from existing exteroceptive sensors. This is a free and open source package that proved to give encoraging result in the underwater environment and in the estimation of the expected position of the underwater system in case of loss of signal from specific positioning sensors. 
+However it will be utilized mostly for tracking of specific blood cells particles for estimating the position of blood cell, cancer cell based on specific cancer markers, fluid flow inside blood vessel or even specific request from the public and according to the general needs.
 
 It has the following dependencies:
 1. Qt5 
@@ -28,6 +28,15 @@ The PFDS can be used in a multiple ways. A great use of this package will be in 
 7. Camera system for stereo-pair use and 3D composition of images
 
 All this information combined together will be able to provide the exact location of the specific cell someone is looking for. ROS will be used for visualization purposes.
+
+Under development:
+1. Creation of a specific graphical User Interface (GUI) to interact with ROS as an external plug-in
+2. Implementation of additional non-parametric filters for additional in-depth analysis
+3. Database integration of recorded information during simulation phase
+4. Cancer integration markers and implementation of related growth equations
+
+**How PFDS works and its structure**
+
 
 
 
