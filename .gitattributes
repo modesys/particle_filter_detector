@@ -1,2 +1,2 @@
 * linguist-vendored
-*.cpp linguist-detectable=true
+*.* linguist-detectable=C++
