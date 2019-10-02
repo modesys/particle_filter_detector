@@ -1,4 +1,4 @@
-**Welcome to the Particle Filter Detector System**
+# Welcome to the Particle Filter Detector System
 
 This repository is a ROS node that is aimed at tracking particle cloud feeding the system with previous information from existing exteroceptive sensors. This is a free and open source package that proved to give encoraging result in the underwater environment and in the estimation of the expected position of the underwater system in case of loss of signal from specific positioning sensors. 
 However it will be utilized mostly for tracking of specific blood cells particles for estimating the position of blood cell, cancer cell based on specific cancer markers, fluid flow inside blood vessel or even specific request from the public and according to the general needs.
@@ -8,7 +8,7 @@ It has the following dependencies:
 2. ROS
 3. Bayesian Library (the orocos-bfl project)
 
-ABSTRACT - UNDERWATER APPLICATION
+**ABSTRACT - UNDERWATER APPLICATION**
 The Particle Filter Detector Systsem (PFDS) is a system used for underwater imaging and fuild environemnt. 
 Originally developed from a terrain-aided particle filter for localizing a freely drifting  underwater  vehicle, the PFDS can also be extended to blood analysis and blood cell tracking.
 If used for underwater on a remotely operated vehicle (ROV) it can be used for habitat  classification,  monitoring tracking of estimated position. During  operation  the vehicle captures down looking images at a controlled altitude above the bottom. Direct navigation information is often, but not always, recorded with a ultra short
@@ -17,7 +17,7 @@ ternate method for georeferencing when USBL is unavailable.  The implemented
 particle filter utilizes a background bathymetry map and visual odometry as a motion mode.  The particle filter is implemented using the Robot Operating System (ROS) and Orocos Bayesian Filtering Library (BFL). The Grid Map package is used to store and retrieve the bathymetryic data.  Results using data collected shows how to effectively utilize the terrain information and produce drift trajectories which closely match the recorded USBL data. Utilizing the method allows the system to be deployed with minimal ship-side support while still maintaining the georeferencing critical to the end use of the collected images. But most importantly, because of the broad scope of application this system can be applied in several environment.
 
 
-ABSTRACT - BIOMEDICAL APPLICATION
+**ABSTRACT - BIOMEDICAL APPLICATION**
 The PFDS can be used in a multiple ways. A great use of this package will be in the tracking of specific blood cells particles for estimating the position of a: i) cell, ii) cancer cell based on specific cancer markers, iii) fluid flow inside blood vessel. A specific number of exteroceptive sensors will be mounted on the human body such as:
 1. A pressure sensor on the body detecting the pressure (and temperature)
 2. Blood speed sensor
