@@ -35,12 +35,9 @@ All this information combined together will be able to provide the exact locatio
 
 
 **ABSTRACT - ULTRASOUND ADDITIONAL APPLICATION**
-The Particle Filter Detector Systsem (PFDS) is a system used for underwater imaging and fuild environemnt. 
-Originally developed from a terrain-aided particle filter for localizing a freely drifting  underwater  vehicle, the PFDS can also be extended to blood analysis and blood cell tracking.
-If used for underwater on a remotely operated vehicle (ROV) it can be used for habitat  classification,  monitoring tracking of estimated position. During  operation  the vehicle captures down looking images at a controlled altitude above the bottom. Direct navigation information is often, but not always, recorded with a ultra short
-baseline  (USBL)  acoustic  systsem. The  presented  methodology  provides  an  al-
-ternate method for georeferencing when USBL is unavailable.  The implemented
-particle filter utilizes a background bathymetry map and visual odometry as a motion mode.  The particle filter is implemented using the Robot Operating System (ROS) and Orocos Bayesian Filtering Library (BFL). The Grid Map package is used to store and retrieve the bathymetryic data.  Results using data collected shows how to effectively utilize the terrain information and produce drift trajectories which closely match the recorded USBL data. Utilizing the method allows the system to be deployed with minimal ship-side support while still maintaining the georeferencing critical to the end use of the collected images. But most importantly, because of the broad scope of application this system can be applied in several environment.
+The Particle Filter Detector Systsem (PFDS) is a system that can also be deployed for underwater imaging and fluidic environemnt. 
+If used for underwater it can be used for habitat  classification,  monitoring tracking of estimated position. During  operation the vehicle (most likely an ROV) captures down looking images at a controlled altitude above the bottom. Direct navigation information is often, but not always, recorded with a ultra short baseline (USBL) acoustic systsem. The presented  methodology provides a different method for georeferencing when USBL is unavailable. The implemented
+particle filter utilizes a background bathymetry map and visual odometry as a motion mode.  The particle filter is implemented using the Robot Operating System (ROS) and Orocos Bayesian Filtering Library (BFL). The Grid Map package is used to store and retrieve the bathymetryic data.  Results using data collected shows how to effectively utilize the terrain information and produce drift trajectories which closely match the recorded USBL data. Utilizing this approach allows the system to be deployed with minimal ship-side support while still maintaining the georeferencing critical to the end use of the collected images. But most importantly, because of the broad scope of application this system can be applied in several environment.
 
 Under development:
 1. Creation of a specific graphical User Interface (GUI) to interact with ROS as an external plug-in
