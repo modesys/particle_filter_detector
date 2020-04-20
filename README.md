@@ -1,4 +1,4 @@
-# Welcome to the Particle Filter Detector System
+# Welcome to the ROS Particle Filter Detector System (PFDS)
 <div>
 &nbsp 
 &nbsp 
