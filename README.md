@@ -31,7 +31,7 @@ The PFDS can be used in a multiple ways. A great use of this package will be in 
 6. Laser device to scan the human body
 7. Camera system for stereo-pair use and 3D composition of images
 
-All this information combined together will be able to provide the exact location of the specific cell someone is looking for. ROS will be used for visualization purposes.
+All this information combined together will be able to provide the exact location of the specific cell someone is looking for. ROS will be used for visualization purposes. Additional application under development to be added at a second stage is the research of a PHD filter (Probability Hypothesis Density) for multiple tracking purposes. This means that this capability will allow the operator/doctor to track multiple cells and or establish their spread based on a previous patients information loaded. This is surely a great tool for research and test of various data and conducting different simulations.
 
 
 **ABSTRACT - ULTRASOUND ADDITIONAL APPLICATION**
