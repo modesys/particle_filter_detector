@@ -2,9 +2,9 @@
 <div>
 
 <img src="https://user-images.githubusercontent.com/55800613/79771851-602b2b00-82fd-11ea-98ba-a53b54eeb381.png" width="400" height="400">
-
-&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-
+&nbsp 
+&nbsp 
+&nbsp 
 <img src="https://user-images.githubusercontent.com/55800613/79771949-7cc76300-82fd-11ea-9a92-719507dcde5d.png" width="400" height="400">
 </div>
 
