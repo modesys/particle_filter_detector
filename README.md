@@ -14,7 +14,7 @@
 
 
 This repository is a ROS node that is aimed at tracking particle cloud feeding the system with previous information from existing exteroceptive sensors. This is a free and open source package that proved to give encoraging result in the estimation of the expected position of particles given specific initial conditions. 
-It will be utilized mostly for tracking of specific blood cells particles for estimating the position of blood cell, cancer cell based on specific cancer markers, fluid flow inside blood vessel or even specific request from the public and according to the general needs.
+It will be utilized mostly for tracking of specific blood cells particles for estimating the position of blood cell, cancer cell based on specific cancer markers, fluid flow inside blood vessel or even specific request from the public and according to the general needs. The particle filter is implemented using the Robot Operating System (ROS) and Orocos Bayesian Filtering Library (BFL).
 
 It has the following dependencies:
 1. Qt5 
