@@ -43,7 +43,6 @@ Under development:
 1. Creation of a specific graphical User Interface (GUI) to interact with ROS as an external plug-in
 2. Implementation of additional non-parametric filters for additional in-depth analysis
 3. Database integration of recorded information during simulation phase
-4. Cancer integration markers and implementation of related growth equations
 
 **How PFDS works and its structure**
 
